@@ -1,0 +1,9 @@
+[a_group]
+node1
+
+[nodes]
+node1
+node2
+
+[controller]
+controller ansible_connection=local

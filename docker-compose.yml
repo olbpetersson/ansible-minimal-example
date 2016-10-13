@@ -1,0 +1,16 @@
+version: '2'
+services:
+  controller:
+    build: docker/ansible_controller
+    links:
+      - node1
+      - node2
+    tty: true
+    volumes:
+      - /your/path/to/ansible-minimal-example/work:/home/
+  node1:
+    build: docker/ansible_target
+    tty: true
+  node2:
+    build: docker/ansible_target
+    tty: true
