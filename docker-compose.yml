@@ -7,7 +7,7 @@ services:
       - node2
     tty: true
     volumes:
-      - /your/path/to/ansible-minimal-example/work:/home/
+      - ./work:/home/
   node1:
     build: docker/ansible_target
     tty: true
