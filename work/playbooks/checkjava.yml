@@ -1,0 +1,11 @@
+---
+  - hosts: all
+    tasks:
+      - name: check if java is installed
+        register: java_installed
+        command: java -v
+        ignore_errors: true
+
+      - name: oh no java failed
+        debug: msg="You should write a task that installs java! Response was {{java_installed}}"
+        when: java_installed|failed

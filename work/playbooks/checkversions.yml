@@ -1,0 +1,19 @@
+---
+  - hosts: all
+    tasks:
+      - name: check for versions installed
+        register: installed_version
+        command: "{{item}}"
+        with_items:
+          - python --version
+          - java -v
+        ignore_errors: true
+
+      - name: oh no a version failed
+        fail: msg="You should write a task that installs
+                   {% for x in installed_version.results %}
+                     {% if x['rc'] != 0 %}
+                       {{ x['cmd'] }}
+                     {% endif %}
+                   {% endfor %}"
+        when: installed_version|failed
