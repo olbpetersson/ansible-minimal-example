@@ -2,15 +2,15 @@ version: '2'
 services:
   controller:
     build: docker/ansible_controller
-    links:
-      - node1
-      - node2
+    container_name: a_controller
     tty: true
     volumes:
       - ./work:/home/
   node1:
     build: docker/ansible_target
+    container_name: a_node
     tty: true
   node2:
     build: docker/ansible_target
+    container_name: another_node
     tty: true
