@@ -10,7 +10,7 @@ You need to have docker and docker compose installed, then run
 
 ## Running
 To verify that everything is correctly setup, do:
- **docker exec -ti ansibleminimalexample_controller_1 bash** , you should now be in a bash shell
+ **docker exec -ti a_controller bash** , you should now be in a bash shell
 in the controller container. Execute **ansible -m ping all** and you should see three sucessful pings from the three containers.
 
 ## Working with and extending the example
